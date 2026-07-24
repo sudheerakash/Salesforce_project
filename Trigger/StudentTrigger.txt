@@ -1,0 +1,12 @@
+trigger StudentTrigger on Student__c (before insert) {
+
+    for (Student__c student : Trigger.new) {
+
+        // Set default phone number if not provided
+        if (student.Phone__c == null) {
+            student.Phone__c = '9999999999';
+        }
+
+    }
+
+}
