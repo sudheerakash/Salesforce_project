@@ -1,0 +1,81 @@
+==========================================
+Student Validation Rule
+==========================================
+
+Validation Rule Name:
+Validate_Student_Year
+
+Object:
+Student__c
+
+Description:
+Ensures that the student year is between 1 and 4.
+
+Error Condition Formula:
+
+OR(
+    Year__c < 1,
+    Year__c > 4
+)
+
+Error Message:
+Year must be between 1 and 4.
+
+Error Location:
+Field: Year
+
+==========================================
+Test Cases
+==========================================
+
+Input:
+Year = 0
+
+Result:
+❌ Error
+"Year must be between 1 and 4."
+
+------------------------------------------
+
+Input:
+Year = 5
+
+Result:
+❌ Error
+"Year must be between 1 and 4."
+
+------------------------------------------
+
+Input:
+Year = 1
+
+Result:
+✅ Record Saved Successfully
+
+------------------------------------------
+
+Input:
+Year = 2
+
+Result:
+✅ Record Saved Successfully
+
+------------------------------------------
+
+Input:
+Year = 3
+
+Result:
+✅ Record Saved Successfully
+
+------------------------------------------
+
+Input:
+Year = 4
+
+Result:
+✅ Record Saved Successfully
+
+==========================================
+End of Validation Rule
+==========================================
