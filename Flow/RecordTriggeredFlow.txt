@@ -1,0 +1,91 @@
+==========================================
+Record-Triggered Flow
+==========================================
+
+Flow Name:
+Student Record Triggered Flow
+
+Flow Type:
+Record-Triggered Flow
+
+Object:
+Student__c
+
+Trigger:
+A record is created.
+
+Run:
+Before the record is saved.
+
+Purpose:
+Automatically assign a default phone number if the Phone field is left blank while creating a new Student record.
+
+------------------------------------------
+Flow Logic
+------------------------------------------
+
+Start
+    |
+    V
+Student Record Created
+    |
+    V
+Decision:
+Is Phone__c blank?
+    |
+   Yes
+    |
+    V
+Assignment:
+Phone__c = '9999999999'
+    |
+    V
+Save Record
+    |
+    V
+End
+
+------------------------------------------
+Business Scenario
+------------------------------------------
+
+When a new student record is created without entering a phone number,
+the flow automatically assigns the default value:
+
+9999999999
+
+This ensures that every student record contains a phone number.
+
+------------------------------------------
+Test Cases
+------------------------------------------
+
+Test Case 1
+
+Input:
+Name = Sudheer
+Phone = (Blank)
+
+Output:
+Phone = 9999999999
+
+Status:
+PASS
+
+------------------------------------------
+
+Test Case 2
+
+Input:
+Name = Rahul
+Phone = 9876543210
+
+Output:
+Phone = 9876543210
+
+Status:
+PASS
+
+------------------------------------------
+End of Flow
+==========================================
